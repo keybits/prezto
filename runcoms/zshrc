@@ -11,3 +11,26 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+
+# golang
+export GOPATH=$HOME/projects/go
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+# enable direnv
+eval "$(direnv hook zsh)"
+
+# source aliases file
+source $HOME/.aliases
+
+# use homebrew version of curl
+export PATH="/usr/local/opt/curl/bin:$PATH"
+
+
+#
+# pyenv
+#
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+if which pyenv > /dev/null; then eval "$(command pyenv init - zsh)"; fi
